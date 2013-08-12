@@ -1,11 +1,10 @@
 var skyCanvas = document.getElementById('sky');
 var context = skyCanvas.getContext("2d");
-var timeOfDay = null;
 var today = new Date();
-
+var timeOfDay = null;
 
 function main(date){
-	date = getCurrentTime(date);
+	date = formatCurrentTime(date);
 	if(timeOfDay === "PM"){
 		drawNightTime(date);
 	}
@@ -14,8 +13,6 @@ function main(date){
 	}
 
 }
-
-
 
 
 // CREATE RANDOMLY GENERATED STARS FOR NIGHTTIME
@@ -36,15 +33,18 @@ function drawStars(){
 	context.fill();
 }
 
-
-function getCurrentTime(){
-	var currentTime = formatDate(today.getHours()) + ":" + formatDate(today.getMinutes()) + " " + formatTime(today.getHours());
+// FORMATS CURRENT DATE & TIME TO READABLE FORM
+function formatCurrentTime(){
+	var currentTime = formatDate(formatTime(today.getHours())) + ":" + 
+				 	  formatDate(today.getMinutes()) + " " + 
+					  determineTimeOfDay(today.getHours());
 	today = formatDate(today.getMonth()+1) + "/" + 
 			formatDate(today.getDate()) + "/" + 
 			formatDate(today.getFullYear());
 	return "Date: " + today + " " + "Time: " + currentTime;
 }
 
+// ADD ZEROS WHERE NECESSARY TO DATES & TIMES
 function formatDate(date){
 	if(date<10){
 		date = "0" + date;
@@ -52,7 +52,16 @@ function formatDate(date){
 	return date;
 }
 
-function formatTime(hours){
+// MAKES TIME 12 HOUR BASED INSTEAD OF 24 HOUR BASED
+function formatTime(time){
+	if (time > 12){
+		time -= 12;
+		return time;
+	}
+}
+
+// SETS THE TIMEOFDAY VARIABLE TO AM OR PM
+function determineTimeOfDay(hours){
 	if(hours > 11){
 		timeOfDay = "PM";
 		return timeOfDay;
@@ -63,6 +72,7 @@ function formatTime(hours){
 	}
 }
 
+// DRAWS THE NIGHT SKY IF TIMEOFDAY === PM
 function drawNightTime(date){
 	context.font = "24pt Helvetica";
 	context.fillStyle = 'black';
@@ -76,6 +86,7 @@ function drawNightTime(date){
 	context.closePath();
 }
 
+// DRAWS THE DAY SKY IF TIMEOFDAY === AM
 function drawDayTime(date){
 	context.font = "24pt Helvetica";
 	context.fillStyle = 'black';
@@ -93,4 +104,7 @@ function drawDayTime(date){
 	context.stroke();
 	context.closePath();
 }
+
+
+// CALL THE MAIN FUNCTION
 main(today);
