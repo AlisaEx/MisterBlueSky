@@ -1,15 +1,48 @@
 var skyCanvas = document.getElementById('sky');
 var context = skyCanvas.getContext("2d");
-var background = 'blue';
-var sunOrMoon = 'yellow';
+var timeOfDay = null;
+var today = new Date();
+
+
+function main(date){
+	date = getCurrentTime(date);
+	if(timeOfDay === "PM"){
+		drawNightTime(date);
+	}
+	else{
+		drawDayTime(date);
+	}
+
+}
+
+
+
+
+// CREATE RANDOMLY GENERATED STARS FOR NIGHTTIME
+function drawStars(){
+	context.beginPath();
+	context.fillStyle = 'black';
+	context.rect(0,0,skyCanvas.width,skyCanvas.height-300);
+	context.fill();
+	context.beginPath();
+	for(var i=0;i<100;i++){
+	    var x=parseInt(Math.random()*skyCanvas.width);
+	    var y=parseInt(Math.random()*skyCanvas.height);
+	    var radius=Math.random()*3;
+	    context.arc(x,y,radius,0,Math.PI*2,false);
+	    context.closePath();
+	}
+	context.fillStyle="white";
+	context.fill();
+}
+
 
 function getCurrentTime(){
-	var today = new Date();
-	var currentTime = formatDate(today.getHours()) + ":" + formatDate(today.getMinutes());
+	var currentTime = formatDate(today.getHours()) + ":" + formatDate(today.getMinutes()) + " " + formatTime(today.getHours());
 	today = formatDate(today.getMonth()+1) + "/" + 
 			formatDate(today.getDate()) + "/" + 
 			formatDate(today.getFullYear());
-	return "Date: " + today + " " + "Time: " + currentTime + " " + formatTime(currentTime);
+	return "Date: " + today + " " + "Time: " + currentTime;
 }
 
 function formatDate(date){
@@ -19,35 +52,45 @@ function formatDate(date){
 	return date;
 }
 
-function formatTime(time){
-	if(time > 11){
-		return "PM";
-		background = 'black';
-		sunOrMoon = 'blue';
+function formatTime(hours){
+	if(hours > 11){
+		timeOfDay = "PM";
+		return timeOfDay;
 	}
 	else{
-		return "AM";
+		timeOfDay = "AM";
+		return timeOfDay;
 	}
 }
 
-
-
-function drawContext(){
-	context.beginPath();
-	context.rect(0,0,skyCanvas.width,skyCanvas.height);
-	context.fillStyle = background;
-	context.fill();
-	context.stroke();
-	context.closePath();
-	context.beginPath();
-	context.arc((skyCanvas.width/2)-200,(skyCanvas.height/2)-200, 50, 0, 2*Math.PI, true);
-	context.fillStyle = sunOrMoon;
-	context.fill();
-	context.stroke();
-	context.closePath();
+function drawNightTime(date){
 	context.font = "24pt Helvetica";
 	context.fillStyle = 'black';
-	context.fillText(getCurrentTime(), skyCanvas.width/2-300, skyCanvas.height-100);
+	context.fillText(date, skyCanvas.width/2-300, skyCanvas.height-100);
+	drawStars();
+	context.beginPath();
+	context.arc((skyCanvas.width/2)-300,(skyCanvas.height/2)-200, 50, 0, 2*Math.PI, true);
+	context.fillStyle = timeOfDay.circle;
+	context.fill();
+	context.stroke();
+	context.closePath();
 }
 
-drawContext();
+function drawDayTime(date){
+	context.font = "24pt Helvetica";
+	context.fillStyle = 'black';
+	context.fillText(date, skyCanvas.width/2-300, skyCanvas.height-100);
+	context.beginPath();
+	context.rect(0,0,skyCanvas.width,skyCanvas.height-300);
+	context.fillStyle = 'blue';
+	context.fill();
+	context.stroke();
+	context.closePath();
+	context.beginPath();
+	context.arc((skyCanvas.width/2)-300,(skyCanvas.height/2)-200, 50, 0, 2*Math.PI, true);
+	context.fillStyle = 'yellow';
+	context.fill();
+	context.stroke();
+	context.closePath();
+}
+main(today);
