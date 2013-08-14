@@ -1,12 +1,14 @@
-var skyCanvas = document.getElementById('sky');
-var context = skyCanvas.getContext("2d");
-
 // GET TODAY'S DATE & TIME
-var today = new Date();
+// var today = new Date();
 var timeOfDay = null;
+
+
 
 // FORCAST.IO API KEY
 var apiKey = 'f256b505c3b676b717e455c54285b08a';
+
+
+
 
 function main(date){
 	date = formatCurrentTime(date);
@@ -24,16 +26,30 @@ function main(date){
 
 }
 
+function makeHttpObject() {
+  try {return new XMLHttpRequest();}
+  catch (error) {}
+  try {return new ActiveXObject("Msxml2.XMLHTTP");}
+  catch (error) {}
+  try {return new ActiveXObject("Microsoft.XMLHTTP");}
+  catch (error) {}
+
+  throw new Error("Could not create HTTP request object.");
+}
+
+console.log(typeof(makeHttpObject()));
+
+
 
 // FORMATS CURRENT DATE & TIME TO READABLE FORM
-function formatCurrentTime(){
-	var currentTime = formatDate(formatTime(today.getHours())) + ":" + 
-				 	  formatDate(today.getMinutes()) + " " + 
-					  determineTimeOfDay(today.getHours());
-	today = formatDate(today.getMonth()+1) + "/" + 
-			formatDate(today.getDate()) + "/" + 
-			formatDate(today.getFullYear());
-	return "Date: " + today + " " + "Time: " + currentTime;
+function formatCurrentTime(date){
+	var currentTime = formatDate(formatTime(date.getHours())) + ":" + 
+				 	  formatDate(date.getMinutes()) + " " + 
+					  determineTimeOfDay(date.getHours());
+	date = formatDate(date.getMonth()+1) + "/" + 
+			formatDate(date.getDate()) + "/" + 
+			formatDate(date.getFullYear());
+	return "Date: " + date + " " + "Time: " + currentTime;
 }
 
 // ADD ZEROS WHERE NECESSARY TO DATES & TIMES
@@ -65,4 +81,4 @@ function determineTimeOfDay(hours){
 }
 
 // CALL THE MAIN FUNCTION
-main(today);
+// main(today);

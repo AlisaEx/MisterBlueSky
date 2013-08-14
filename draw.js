@@ -1,3 +1,6 @@
+var skyCanvas = document.getElementById('sky');
+var context = skyCanvas.getContext("2d");
+
 // CREATE RANDOMLY GENERATED STARS FOR NIGHTTIME
 function drawStars(){
 	context.beginPath();
