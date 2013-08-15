@@ -1,23 +1,20 @@
-var http = require("http");
-
 var options = {
 	host: "https://api.forecast.io",
 	path: "/forecast/f256b505c3b676b717e455c54285b08a/40.7271164,-74.0060906"
 }
 
+var request = require("superagent");
 
-callback = function(response) {
-  var str = '';
 
-  //another chunk of data has been recieved, so append it to `str`
-  response.on('data', function (chunk) {
-    str += chunk;
+request
+  .get(options.host+options.path)
+  // .withCredentials();
+  .end(function(err,res){
+    if(err){
+      console.log(err);
+    }
+    if(res.error){
+      console.log(res.error);
+    }
+      console.log(res);
   });
-
-  //the whole response has been recieved, so we just print it out here
-  response.on('end', function () {
-    console.log(str);
-  });
-}
-
-http.request(options, callback).end();
