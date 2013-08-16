@@ -5,12 +5,12 @@ var context = skyCanvas.getContext("2d");
 function drawStars(){
 	context.beginPath();
 	context.fillStyle = 'black';
-	context.rect(0,0,skyCanvas.width,skyCanvas.height-300);
+	context.rect(0,0,skyCanvas.width,skyCanvas.height-400);
 	context.fill();
 	context.beginPath();
 	for(var i=0;i<100;i++){
 	    var x=parseInt(Math.random()*skyCanvas.width);
-	    var y=parseInt(Math.random()*skyCanvas.height);
+	    var y=parseInt(Math.random()*skyCanvas.height-400);
 	    var radius=Math.random()*3;
 	    context.arc(x,y,radius,0,Math.PI*2,false);
 	    context.closePath();
@@ -23,7 +23,7 @@ function drawStars(){
 function drawDate(date){
 	context.font = "24pt Helvetica";
 	context.fillStyle = 'black';
-	context.fillText(date, skyCanvas.width/2-300, skyCanvas.height-100);
+	context.fillText(date, 100, skyCanvas.height-100);
 }
 
 // DRAWS THE BACKGROUND OF THE CANVAS
