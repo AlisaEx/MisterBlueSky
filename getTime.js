@@ -9,7 +9,7 @@ var apiKey = 'f256b505c3b676b717e455c54285b08a';
 
 function main(date){
 	date = formatCurrentTime(date);
-	drawDate(date);
+	drawText(date, 100, 600);
 	if(timeOfDay === "PM"){
 		drawStars();
 		drawGround('blue');
@@ -20,8 +20,7 @@ function main(date){
 		drawGround('green');
 		drawCircle('yellow');
 	}
-
-}
+};
 
 
 // FORMATS CURRENT DATE & TIME TO READABLE FORM

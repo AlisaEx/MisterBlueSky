@@ -1,5 +1,6 @@
-var skyCanvas = document.getElementById('sky');
-var context = skyCanvas.getContext("2d");
+// INSTANTIATE THE CANVAS ELEMENT
+skyCanvas = document.getElementById("sky");
+context = skyCanvas.getContext("2d");
 
 // CREATE RANDOMLY GENERATED STARS FOR NIGHTTIME
 function drawStars(){
@@ -20,10 +21,11 @@ function drawStars(){
 }
 
 // DRAWS THE DATE & TIME TO THE CANVAS
-function drawDate(date){
+function drawText(text, x, y){
+	console.log(text);
 	context.font = "24pt Helvetica";
 	context.fillStyle = 'black';
-	context.fillText(date, 100, skyCanvas.height-100);
+	context.fillText(text, x, y);
 }
 
 // DRAWS THE BACKGROUND OF THE CANVAS
