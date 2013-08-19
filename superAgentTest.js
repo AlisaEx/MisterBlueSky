@@ -7,23 +7,31 @@ var options = {
 	path: "/forecast/f256b505c3b676b717e455c54285b08a/40.7271164,-74.0060906"
 }
 
+var googleOp = {
+  host: "https://www.googleapis.com/geolocation/v1/geolocate?key=",
+  path: "AIzaSyBDxA_eCaJd1N-Pyr13i3JCXhu1cP0nfmE"
+}
 
+var http    = require("http");
 var request = require("superagent");
-// var time = require("/getTime.js");
-// var drawing = require("/draw.js");
-// var location = require("/getLocation.js");
+
+
+http.createServer(function(request, response){
+
+}).listen(8000);
+
 
 request
-  .get(options.host+options.path)
+  .get(googleOp.host+googleOp.path)
   .end(function(err,res){
     if(err){
-      console.log("Error: " + err);
+      console.log(err);
     }
     if(res.error){
-      console.log("Error: " + res.error);
+      console.log(res.error);
     }
-      console.log("Location: " + res.body.latitude + ", " + res.body.longitude);
-      console.log("Temperature: " + res.body.currently.temperature);
-      console.log("Feels Like: " + res.body.currently.apparentTemperature);
-      console.log("Summary: " + res.body.currently.summary);
+      location    = ("Location: " + res.body.latitude + ", " + res.body.longitude);
+      temperature = ("Temperature: " + res.body.currently.temperature);
+      feelsLike   = ("Feels Like: " + res.body.currently.apparentTemperature);
+      summary     = ("Summary: " + res.body.currently.summary);
   });

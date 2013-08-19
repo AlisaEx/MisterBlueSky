@@ -2,11 +2,6 @@
 var today = new Date();
 var timeOfDay = null;
 
-
-// FORCAST.IO API KEY
-var apiKey = 'f256b505c3b676b717e455c54285b08a';
-
-
 function main(date){
 	date = formatCurrentTime(date);
 	drawText(date, 100, 600);

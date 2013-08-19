@@ -8,7 +8,7 @@ function generateUrl(apiKey, position){
   }
   drawText("Latitude, Longitude: " + position, 100, 650);
 	url = "https://api.forecast.io/forecast/"+APIKEY+"/"+position;
-	console.log(url);
+
 }
 
 var map;
@@ -20,7 +20,6 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
       pos = JSON.stringify(pos.mb) + "," + JSON.stringify(pos.nb);
-      console.log(pos);
       generateUrl(APIKEY, pos);
     }, function() {
       handleNoGeolocation(true);
