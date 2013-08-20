@@ -7,7 +7,7 @@ var generateUrl = function(apiKey, position){
 		position = JSON.stringify(position);
   }
   // drawText("Latitude, Longitude: " + position, 100, 650);
-  url = "https://api.forecast.io/forecast/"+APIKEY+"/"+position;
+  url = "https://api.forecast.io/forecast/f256b505c3b676b717e455c54285b08a"+"/"+position;
   console.log(url);
 }
 
@@ -19,9 +19,3 @@ var getLocation = function(){
       return(location);
     })
 };
-
-var server = function(url){
-  var xhr = new XmlHttpRequest();
-  xhr.open("GET", "localhost:8000/url="+url, true);
-  xhr.send();
-}
