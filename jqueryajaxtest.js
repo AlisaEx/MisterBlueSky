@@ -1,12 +1,14 @@
-$(document).ready(function(){
+var url = 'localhost:8001/'+currentLoc;
 
-$.ajax({
-	url: 'https://api.forecast.io/forecast/f256b505c3b676b717e455c54285b08a/40,-70',
+$(document).ready(function(){
+	console.log("jquery set");
+$.get({
+	url: 'localhost:8001/',
 	xhrFields: {
 		withCredentials: true
 	},
 	success: function(res){
-		console.log(res);
+		$('div').text(res);
 	},
 	error: function(err){
 		console.log(err);

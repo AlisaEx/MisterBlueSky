@@ -20,7 +20,7 @@ function main(date){
 
 // FORMATS CURRENT DATE & TIME TO READABLE FORM
 function formatCurrentTime(date){
-	var currentTime = formatTime(date.getHours())) + ":" + 
+	var currentTime = formatTime(date.getHours()) + ":" + 
 				 	  formatDate(date.getMinutes()) + " " + 
 					  determineTimeOfDay(date.getHours());
 	date = formatDate(date.getMonth()+1) + "/" + 
