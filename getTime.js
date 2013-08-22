@@ -3,8 +3,9 @@ var today = new Date();
 var timeOfDay = null;
 
 function main(date){
+	getLocation();
 	date = formatCurrentTime(date);
-	drawText(date, 100, 600);
+	$('#time').html(date);
 	if(timeOfDay === "PM"){
 		drawStars();
 		drawGround('blue');
