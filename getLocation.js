@@ -20,14 +20,14 @@ var getLocation = function(){
 };
 
 function makeRequest(location){
-  var params = ('localhost:8001/?'+location)
+  var params = ('http://localhost:8001/?'+location);
   $.ajax({
     url: params,
     xhrField:{
       withCredentials: true
     },
     success: function(res){
-      console.log(res);
+      drawText(res, 100,700);
     },
     error: function(err){
       console.log(err);

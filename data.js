@@ -1,31 +1,36 @@
 // GETTING FORCAST.IO DATA USING THEIR API && THE SUPERAGENT NODE LIBRARY
 var http    = require("http");
-var request  = require("superagent");
+var request = require("superagent");
 var url     = require("url");
+var through = require('through')
 
 function onRequest(req, res){
   console.log("Request recieved");
-  var path = req.url;
-  console.log(path);
-  var url = "https://api.forecast.io/forecast/f256b505c3b676b717e455c54285b08a"+path.toString();
+  var query = url.parse(req.url, true).query;
+  var location = [query.lat, query.long];
+  var apiUrl = "https://api.forecast.io/forecast/f256b505c3b676b717e455c54285b08a/"+location.join(",");
   request
-    .get(url)
-    .end(function(err,res){
+    .get(apiUrl)
+    .end(function(err,response){
       if(err){
         console.log(err);
       }
-      if(res.error){
-        console.log(res.error);
+      if(response.error){
+        console.log(response.error);
       }
-        location    = ("Location: " + res.body.latitude + ", " + res.body.longitude);
-        temperature = ("Temperature: " + res.body.currently.temperature);
-        summary     = ("Summary: " + res.body.currently.summary);
-        res.writeHead(200, {"Content-Type": "text/plain"});
-        res.write(temperature);
+        location    = ("Location: " + response.body.latitude + ", " + response.body.longitude + "\n");
+        temperature = ("Temperature: " + response.body.currently.temperature + "\n");
+        summary     = ("Summary: " + response.body.currently.summary + "\n");
+        var info = [location, temperature, summary];
+        var headers = {
+          "Content-Type": "text/plain",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "X-Requested-With"
+        }
+        res.writeHead(200, headers);
+        res.end(info);
       })
   }
 
 http.createServer(onRequest).listen(8001);
 console.log("Server Started.");
-
-
