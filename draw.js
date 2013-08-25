@@ -21,13 +21,6 @@ function drawStars(){
 	context.fill();
 }
 
-// DRAWS THE DATE & TIME TO THE CANVAS
-function drawText(text, x, y){
-	context.font = "24pt Helvetica";
-	context.fillStyle = 'black';
-	context.fillText(text, x, y);
-}
-
 // DRAWS THE BACKGROUND OF THE CANVAS
 function drawBackground(color){
 	context.beginPath();
