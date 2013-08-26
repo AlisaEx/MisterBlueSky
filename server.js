@@ -17,10 +17,10 @@ function onRequest(req, res){
       if(response.error){
         console.log(response.error);
       }
-        location    = ("Location: " + response.body.latitude + ", " + response.body.longitude + "\n");
-        temperature = ("Temperature: " + response.body.currently.temperature + "\n");
-        summary     = ("Summary: " + response.body.currently.summary + "\n");
-        var info = [location, temperature, summary].join(", ");
+        location    = ("Latitude: " + response.body.latitude + "<br>Longitude: " + response.body.longitude);
+        temperature = ("Temperature: " + response.body.currently.temperature + "&deg;");
+        summary     = ("Current weather: " + response.body.currently.summary);
+        var info = [location, temperature, summary].join("<br>");
         var headers = {
           "Content-Type": "text/plain",
           "Access-Control-Allow-Origin": "*",

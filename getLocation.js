@@ -6,6 +6,9 @@ var getLocation = function(){
     })
 };
 
+
+
+
 function makeRequest(location){
   var serverUrl = 'http://localhost:8001?'+location;
   $.ajax({
@@ -14,7 +17,7 @@ function makeRequest(location){
       withCredentials: true
     },
     success: function(res){
-      $('#weather').text(res);
+      $("#weather").html(res);
     },
     error: function(err){
       console.log(err);

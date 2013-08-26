@@ -27,7 +27,7 @@ function formatCurrentTime(date){
 	date = formatDate(date.getMonth()+1) + "/" + 
 			formatDate(date.getDate()) + "/" + 
 			formatDate(date.getFullYear());
-	return "Date: " + date + " " + "Time: " + currentTime;
+	return "Date: " + date + "<br>" + "Time: " + currentTime;
 }
 
 // ADD ZEROS WHERE NECESSARY TO DATES & TIMES
