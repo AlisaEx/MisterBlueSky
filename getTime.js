@@ -1,34 +1,22 @@
-// GET TODAY'S DATE & TIME
-var today = new Date();
-var timeOfDay = null;
-
-function main(date){
-	getLocation();
-	date = formatCurrentTime(date);
-	$('#time').html(date);
-	if(timeOfDay === "PM"){
-		drawStars();
-		drawGround('blue');
-		drawCircle('grey');
-	}
-	else{
-		drawBackground('blue');
-		drawGround('green');
-		drawCircle('yellow');
-	}
+function main(){
+	// getLocation();
+	var date = getTime();
+	$('.span3 #time').html(date[0]);
+	$('.span3 #date').html(date[1]);
 };
 
 
-// FORMATS CURRENT DATE & TIME TO READABLE FORM
-function formatCurrentTime(date){
-	var currentTime = formatTime(date.getHours()) + ":" + 
-				 	  formatDate(date.getMinutes()) + " " + 
-					  determineTimeOfDay(date.getHours());
-	date = formatDate(date.getMonth()+1) + "/" + 
-			formatDate(date.getDate()) + "/" + 
-			formatDate(date.getFullYear());
-	return "Date: " + date + "<br>" + "Time: " + currentTime;
+function getTime(){
+	var today = new Date();
+	var timeEnd = today.getHours > 11 ? "PM" : "AM";
+	var time = formatDate(formatHour(today.getHours())) + ":" + 
+				formatDate(today.getMinutes()) + timeEnd;
+	var day = formatDate((today.getMonth() + 1)) + "/" + 
+				formatDate(today.getDate()) + "/" +
+				formatDate(today.getFullYear());
+	return [time, day];
 }
+
 
 // ADD ZEROS WHERE NECESSARY TO DATES & TIMES
 function formatDate(date){
@@ -39,24 +27,12 @@ function formatDate(date){
 }
 
 // MAKES TIME 12 HOUR BASED INSTEAD OF 24 HOUR BASED
-function formatTime(time){
+function formatHour(time){
 	if (time > 12){
 		time -= 12;
-		return time;
 	}
-}
-
-// SETS THE TIMEOFDAY VARIABLE TO AM OR PM
-function determineTimeOfDay(hours){
-	if(hours > 11){
-		timeOfDay = "PM";
-		return timeOfDay;
-	}
-	else{
-		timeOfDay = "AM";
-		return timeOfDay;
-	}
+	return time;
 }
 
 // CALL THE MAIN FUNCTION
-main(today);
+main();

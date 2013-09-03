@@ -49,3 +49,24 @@ function drawCircle(color){
 	context.stroke();
 	context.closePath();
 }
+
+function sunRays(){
+	var angle = 0;
+	for(var i=0; i< 10; i++){
+		context.save();
+		context.translate((skyCanvas.width/2)-300, (skyCanvas.height/2)-150);
+      	context.rotate(angle+=18);
+      	context.moveTo(0+angle,0+angle);
+      	context.lineTo(0,-10);
+      	context.stroke();
+      	context.restore();
+	}
+}
+
+function sunny(){
+	drawBackground("blue");
+	drawGround("green");
+	drawCircle("yellow");
+	sunRays();
+}
+
