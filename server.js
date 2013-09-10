@@ -17,10 +17,12 @@ function onRequest(req, res){
       if(response.error){
         console.log(response.error);
       }
-        location    = ("Latitude: " + response.body.latitude + "<br>Longitude: " + response.body.longitude);
-        temperature = ("Temperature: " + response.body.currently.temperature + "&deg;");
-        summary     = ("Current weather: " + response.body.currently.summary);
-        var info = [location, temperature, summary].join("<br>");
+        icon        = ("<span><img src='Icons/" + response.body.currently.icon + ".png'></span>");
+        summary     = ("<span>" + response.body.currently.summary+ "</span>");
+        temperature = ("<span>Temperature " + response.body.currently.temperature + "&deg;</span>")
+        feelsLike   = ("<span>Feels Like " + response.body.currently.apparentTemperature + "&deg</span>");
+        location    = (Math.round(response.body.latitude) + ", " + Math.round(response.body.longitude)+"</span>");
+        var info = [icon, summary, temperature, feelsLike, location].join("<br>");
         var headers = {
           "Content-Type": "text/plain",
           "Access-Control-Allow-Origin": "*",

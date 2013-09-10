@@ -1,8 +1,7 @@
 function main(){
-	// getLocation();
+	getLocation();
 	var date = getTime();
 	$(document).ready(function(){
-
 		$('#date').html(date[0]);
 		$('#time').html(date[1]);
 	})
@@ -11,7 +10,7 @@ function main(){
 
 function getTime(){
 	var today = new Date();
-	var timeEnd = today.getHours > 11 ? "PM" : "AM";
+	var timeEnd = today.getHours() > 11 ? "PM" : "AM";
 	var time = formatDate(formatHour(today.getHours())) + ":" + 
 				formatDate(today.getMinutes()) + " " + timeEnd;
 	var day = formatDate((today.getMonth() + 1)) + "/" + 
