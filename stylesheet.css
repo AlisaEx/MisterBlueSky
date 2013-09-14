@@ -1,3 +1,15 @@
+body{
+	background-color: black;
+}
+
 div{
+	color: white;
 	font-size: 30pt;
+}
+
+#weather{
+	margin: 0px auto;
+	float: none;
+	border: 9px solid grey;
+	border-radius: 20px;
 }
