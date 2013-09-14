@@ -1,15 +1,20 @@
+window{
+	border: 3px solid black;
+}
+
 body{
-	background-color: black;
+	background: url(Images/greyfloral.png);
+	background-repeat: repeat;
 }
 
 div{
-	color: white;
+	color: black;
 	font-size: 30pt;
 }
 
 #weather{
 	margin: 0px auto;
 	float: none;
-	border: 9px solid grey;
+	border: 9px solid black;
 	border-radius: 20px;
 }
