@@ -1,0 +1,226 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'url', '--save' ]
+2 info using npm@1.4.21
+3 info using node@v0.10.30
+4 verbose node symlink /usr/bin/node
+5 warn package.json v2.0@0.0.0 No description
+6 warn package.json v2.0@0.0.0 No repository field.
+7 warn package.json v2.0@0.0.0 No README data
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'url', null ]
+10 verbose cache add name=undefined spec="url" args=["url",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'url',
+11 verbose parsed url   path: 'url',
+11 verbose parsed url   href: 'url' }
+12 silly lockFile 81736358-url url
+13 verbose lock url /home/alisa/.npm/81736358-url.lock
+14 silly lockFile 81736358-url url
+15 silly lockFile 81736358-url url
+16 verbose addNamed [ 'url', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile b781997a-url url@
+19 verbose lock url@ /home/alisa/.npm/b781997a-url.lock
+20 silly addNameRange { name: 'url', range: '*', hasData: false }
+21 verbose request where is /url
+22 verbose request registry https://registry.npmjs.org/
+23 verbose request id e9f98d1ebe9b376e
+24 verbose url raw /url
+25 verbose url resolving [ 'https://registry.npmjs.org/', './url' ]
+26 verbose url resolved https://registry.npmjs.org/url
+27 verbose request where is https://registry.npmjs.org/url
+28 info trying registry request attempt 1 at 15:10:30
+29 http GET https://registry.npmjs.org/url
+30 http 200 https://registry.npmjs.org/url
+31 silly registry.get cb [ 200,
+31 silly registry.get   { date: 'Sun, 28 Sep 2014 22:10:30 GMT',
+31 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 silly registry.get     etag: '"5RVPLMGW23EZ7Q0GKW9NCL0VF"',
+31 silly registry.get     'content-type': 'application/json',
+31 silly registry.get     'cache-control': 'max-age=60',
+31 silly registry.get     'content-length': '8377',
+31 silly registry.get     'accept-ranges': 'bytes',
+31 silly registry.get     via: '1.1 varnish',
+31 silly registry.get     age: '2010',
+31 silly registry.get     'x-served-by': 'cache-lax1429-LAX',
+31 silly registry.get     'x-cache': 'HIT',
+31 silly registry.get     'x-cache-hits': '1',
+31 silly registry.get     'x-timer': 'S1411942230.444842,VS0,VE0',
+31 silly registry.get     vary: 'Accept',
+31 silly registry.get     'keep-alive': 'timeout=10, max=50',
+31 silly registry.get     connection: 'Keep-Alive' } ]
+32 silly addNameRange number 2 { name: 'url', range: '*', hasData: true }
+33 silly addNameRange versions [ 'url', [ '0.4.9', '0.7.9', '0.10.0', '0.10.1' ] ]
+34 verbose addNamed [ 'url', '0.10.1' ]
+35 verbose addNamed [ '0.10.1', '0.10.1' ]
+36 silly lockFile 80ef5e83-url-0-10-1 url@0.10.1
+37 verbose lock url@0.10.1 /home/alisa/.npm/80ef5e83-url-0-10-1.lock
+38 silly lockFile df5492b1-try-npmjs-org-url-url-0-10-1-tgz https://registry.npmjs.org/url/-/url-0.10.1.tgz
+39 verbose lock https://registry.npmjs.org/url/-/url-0.10.1.tgz /home/alisa/.npm/df5492b1-try-npmjs-org-url-url-0-10-1-tgz.lock
+40 verbose addRemoteTarball [ 'https://registry.npmjs.org/url/-/url-0.10.1.tgz',
+40 verbose addRemoteTarball   'd8eba8f267cec7645ddd93d2cdcf2320c876d25b' ]
+41 info retry fetch attempt 1 at 15:10:30
+42 verbose fetch to= /tmp/npm-3573-mUXUE_S7/registry.npmjs.org/url/-/url-0.10.1.tgz
+43 http GET https://registry.npmjs.org/url/-/url-0.10.1.tgz
+44 http 200 https://registry.npmjs.org/url/-/url-0.10.1.tgz
+45 silly lockFile df5492b1-try-npmjs-org-url-url-0-10-1-tgz https://registry.npmjs.org/url/-/url-0.10.1.tgz
+46 silly lockFile df5492b1-try-npmjs-org-url-url-0-10-1-tgz https://registry.npmjs.org/url/-/url-0.10.1.tgz
+47 silly lockFile 80ef5e83-url-0-10-1 url@0.10.1
+48 silly lockFile 80ef5e83-url-0-10-1 url@0.10.1
+49 silly lockFile b781997a-url url@
+50 silly lockFile b781997a-url url@
+51 silly resolved [ { name: 'url',
+51 silly resolved     description: 'The core `url` packaged standalone for use with Browserify.',
+51 silly resolved     version: '0.10.1',
+51 silly resolved     dependencies: { punycode: '1.2.4' },
+51 silly resolved     main: './url.js',
+51 silly resolved     devDependencies: { assert: '1.1.1', mocha: '1.18.2', zuul: '1.6.3' },
+51 silly resolved     scripts:
+51 silly resolved      { test: 'mocha --ui qunit test.js && zuul -- test.js',
+51 silly resolved        'test-local': 'zuul --local -- test.js' },
+51 silly resolved     repository:
+51 silly resolved      { type: 'git',
+51 silly resolved        url: 'https://github.com/defunctzombie/node-url.git' },
+51 silly resolved     bugs: { url: 'https://github.com/defunctzombie/node-url/issues' },
+51 silly resolved     homepage: 'https://github.com/defunctzombie/node-url',
+51 silly resolved     _id: 'url@0.10.1',
+51 silly resolved     dist:
+51 silly resolved      { shasum: 'd8eba8f267cec7645ddd93d2cdcf2320c876d25b',
+51 silly resolved        tarball: 'http://registry.npmjs.org/url/-/url-0.10.1.tgz' },
+51 silly resolved     _from: 'url@',
+51 silly resolved     _npmVersion: '1.4.6',
+51 silly resolved     _npmUser: { name: 'shtylman', email: 'shtylman@gmail.com' },
+51 silly resolved     maintainers: [ [Object], [Object] ],
+51 silly resolved     directories: {},
+51 silly resolved     _shasum: 'd8eba8f267cec7645ddd93d2cdcf2320c876d25b',
+51 silly resolved     _resolved: 'https://registry.npmjs.org/url/-/url-0.10.1.tgz' } ]
+52 info install url@0.10.1 into /home/alisa/MisterBlueSky/v2.0
+53 info installOne url@0.10.1
+54 verbose node_modules/url unbuild
+55 verbose tar unpack /home/alisa/.npm/url/0.10.1/package.tgz
+56 silly lockFile 1984cb34-terBlueSky-v2-0-node-modules-url tar:///home/alisa/MisterBlueSky/v2.0/node_modules/url
+57 verbose lock tar:///home/alisa/MisterBlueSky/v2.0/node_modules/url /home/alisa/.npm/1984cb34-terBlueSky-v2-0-node-modules-url.lock
+58 silly lockFile a525799b-alisa-npm-url-0-10-1-package-tgz tar:///home/alisa/.npm/url/0.10.1/package.tgz
+59 verbose lock tar:///home/alisa/.npm/url/0.10.1/package.tgz /home/alisa/.npm/a525799b-alisa-npm-url-0-10-1-package-tgz.lock
+60 silly gunzTarPerm modes [ '775', '664' ]
+61 silly gunzTarPerm extractEntry package.json
+62 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+63 silly gunzTarPerm extractEntry .npmignore
+64 silly gunzTarPerm modified mode [ '.npmignore', 420, 436 ]
+65 silly gunzTarPerm extractEntry README.md
+66 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+67 silly gunzTarPerm extractEntry test.js
+68 silly gunzTarPerm modified mode [ 'test.js', 420, 436 ]
+69 silly gunzTarPerm extractEntry url.js
+70 silly gunzTarPerm modified mode [ 'url.js', 420, 436 ]
+71 silly gunzTarPerm extractEntry .travis.yml
+72 silly gunzTarPerm modified mode [ '.travis.yml', 420, 436 ]
+73 silly gunzTarPerm extractEntry .zuul.yml
+74 silly gunzTarPerm modified mode [ '.zuul.yml', 420, 436 ]
+75 silly lockFile 1984cb34-terBlueSky-v2-0-node-modules-url tar:///home/alisa/MisterBlueSky/v2.0/node_modules/url
+76 silly lockFile 1984cb34-terBlueSky-v2-0-node-modules-url tar:///home/alisa/MisterBlueSky/v2.0/node_modules/url
+77 silly lockFile a525799b-alisa-npm-url-0-10-1-package-tgz tar:///home/alisa/.npm/url/0.10.1/package.tgz
+78 silly lockFile a525799b-alisa-npm-url-0-10-1-package-tgz tar:///home/alisa/.npm/url/0.10.1/package.tgz
+79 info preinstall url@0.10.1
+80 verbose readDependencies using package.json deps
+81 verbose readDependencies using package.json deps
+82 verbose cache add [ 'punycode@1.2.4', null ]
+83 verbose cache add name=undefined spec="punycode@1.2.4" args=["punycode@1.2.4",null]
+84 verbose parsed url { protocol: null,
+84 verbose parsed url   slashes: null,
+84 verbose parsed url   auth: null,
+84 verbose parsed url   host: null,
+84 verbose parsed url   port: null,
+84 verbose parsed url   hostname: null,
+84 verbose parsed url   hash: null,
+84 verbose parsed url   search: null,
+84 verbose parsed url   query: null,
+84 verbose parsed url   pathname: 'punycode@1.2.4',
+84 verbose parsed url   path: 'punycode@1.2.4',
+84 verbose parsed url   href: 'punycode@1.2.4' }
+85 verbose cache add name="punycode" spec="1.2.4" args=["punycode","1.2.4"]
+86 verbose parsed url { protocol: null,
+86 verbose parsed url   slashes: null,
+86 verbose parsed url   auth: null,
+86 verbose parsed url   host: null,
+86 verbose parsed url   port: null,
+86 verbose parsed url   hostname: null,
+86 verbose parsed url   hash: null,
+86 verbose parsed url   search: null,
+86 verbose parsed url   query: null,
+86 verbose parsed url   pathname: '1.2.4',
+86 verbose parsed url   path: '1.2.4',
+86 verbose parsed url   href: '1.2.4' }
+87 verbose addNamed [ 'punycode', '1.2.4' ]
+88 verbose addNamed [ '1.2.4', '1.2.4' ]
+89 silly lockFile 741fec01-punycode-1-2-4 punycode@1.2.4
+90 verbose lock punycode@1.2.4 /home/alisa/.npm/741fec01-punycode-1-2-4.lock
+91 verbose request where is /punycode
+92 verbose request registry https://registry.npmjs.org/
+93 verbose url raw /punycode
+94 verbose url resolving [ 'https://registry.npmjs.org/', './punycode' ]
+95 verbose url resolved https://registry.npmjs.org/punycode
+96 verbose request where is https://registry.npmjs.org/punycode
+97 info trying registry request attempt 1 at 15:10:30
+98 verbose etag "DKBOBVHCP39D0M49EGZHJEIVE"
+99 http GET https://registry.npmjs.org/punycode
+100 http 304 https://registry.npmjs.org/punycode
+101 silly registry.get cb [ 304,
+101 silly registry.get   { date: 'Sun, 28 Sep 2014 22:10:31 GMT',
+101 silly registry.get     server: 'Apache',
+101 silly registry.get     via: '1.1 varnish',
+101 silly registry.get     'last-modified': 'Sun, 28 Sep 2014 22:10:08 GMT',
+101 silly registry.get     'cache-control': 'max-age=60',
+101 silly registry.get     etag: '"DKBOBVHCP39D0M49EGZHJEIVE"',
+101 silly registry.get     'x-served-by': 'cache-sjc3130-SJC',
+101 silly registry.get     'x-cache': 'HIT',
+101 silly registry.get     'x-cache-hits': '3',
+101 silly registry.get     'x-timer': 'S1411942231.250048,VS0,VE0',
+101 silly registry.get     vary: 'Accept',
+101 silly registry.get     'content-length': '0',
+101 silly registry.get     'keep-alive': 'timeout=10, max=50',
+101 silly registry.get     connection: 'Keep-Alive' } ]
+102 verbose etag https://registry.npmjs.org/punycode from cache
+103 silly lockFile 283db745--org-punycode-punycode-1-2-4-tgz https://registry.npmjs.org/punycode/-/punycode-1.2.4.tgz
+104 verbose lock https://registry.npmjs.org/punycode/-/punycode-1.2.4.tgz /home/alisa/.npm/283db745--org-punycode-punycode-1-2-4-tgz.lock
+105 verbose addRemoteTarball [ 'https://registry.npmjs.org/punycode/-/punycode-1.2.4.tgz',
+105 verbose addRemoteTarball   '54008ac972aec74175def9cba6df7fa9d3918740' ]
+106 info retry fetch attempt 1 at 15:10:31
+107 verbose fetch to= /tmp/npm-3573-mUXUE_S7/registry.npmjs.org/punycode/-/punycode-1.2.4.tgz
+108 http GET https://registry.npmjs.org/punycode/-/punycode-1.2.4.tgz
+109 http 200 https://registry.npmjs.org/punycode/-/punycode-1.2.4.tgz
+110 silly lockFile 283db745--org-punycode-punycode-1-2-4-tgz https://registry.npmjs.org/punycode/-/punycode-1.2.4.tgz
+111 silly lockFile 283db745--org-punycode-punycode-1-2-4-tgz https://registry.npmjs.org/punycode/-/punycode-1.2.4.tgz
+112 silly lockFile 741fec01-punycode-1-2-4 punycode@1.2.4
+113 silly lockFile 741fec01-punycode-1-2-4 punycode@1.2.4
+114 verbose about to build /home/alisa/MisterBlueSky/v2.0/node_modules/url
+115 verbose node_modules/url unbuild
+116 info preuninstall url@0.10.1
+117 info uninstall url@0.10.1
+118 verbose true,/home/alisa/MisterBlueSky/v2.0/node_modules,/home/alisa/MisterBlueSky/v2.0/node_modules unbuild url@0.10.1
+119 info postuninstall url@0.10.1
+120 error Error: EACCES, mkdir '/home/alisa/.npm/punycode/1.2.4'
+120 error  { [Error: EACCES, mkdir '/home/alisa/.npm/punycode/1.2.4']
+120 error   errno: 3,
+120 error   code: 'EACCES',
+120 error   path: '/home/alisa/.npm/punycode/1.2.4',
+120 error   parent: 'url' }
+121 error Please try running this command again as root/Administrator.
+122 error System Linux 3.13.0-36-generic
+123 error command "/usr/bin/node" "/usr/bin/npm" "install" "url" "--save"
+124 error cwd /home/alisa/MisterBlueSky/v2.0
+125 error node -v v0.10.30
+126 error npm -v 1.4.21
+127 error path /home/alisa/.npm/punycode/1.2.4
+128 error code EACCES
+129 error errno 3
+130 error stack Error: EACCES, mkdir '/home/alisa/.npm/punycode/1.2.4'
+131 verbose exit [ 3, true ]

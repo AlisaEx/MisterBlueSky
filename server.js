@@ -22,7 +22,7 @@ function onRequest(req, res){
         temperature = ("<span>Temperature " + response.body.currently.temperature + "&deg;</span>")
         feelsLike   = ("<span>Feels Like " + response.body.currently.apparentTemperature + "&deg</span>");
         location    = (Math.round(response.body.latitude) + ", " + Math.round(response.body.longitude)+"</span>");
-        var info = [icon, summary, temperature, feelsLike, location].join("<br>");
+        var info = ["<h1>yes.</h1>", icon, summary, temperature, feelsLike, location].join("<br>");
         var headers = {
           "Content-Type": "text/plain",
           "Access-Control-Allow-Origin": "*",
